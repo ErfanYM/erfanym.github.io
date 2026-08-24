@@ -1,13 +1,37 @@
-import * as simpleIcons from "simple-icons";
+import {
+  siPython,
+  siOpenjdk,
+  siJavascript,
+  siTypescript,
+  siReact,
+  siSpringboot,
+  siPostgresql,
+  siMysql,
+  siDocker,
+  siApachespark,
+  type SimpleIcon,
+} from "simple-icons";
 
 interface SkillIconBadgeProps {
   slug: string;
   name: string;
 }
 
+const iconMap: Record<string, SimpleIcon> = {
+  python: siPython,
+  openjdk: siOpenjdk,
+  javascript: siJavascript,
+  typescript: siTypescript,
+  react: siReact,
+  springboot: siSpringboot,
+  postgresql: siPostgresql,
+  mysql: siMysql,
+  docker: siDocker,
+  apachespark: siApachespark,
+};
+
 function getIcon(slug: string) {
-  const key = `si${slug.charAt(0).toUpperCase()}${slug.slice(1)}` as keyof typeof simpleIcons;
-  return simpleIcons[key] as { path: string; hex: string } | undefined;
+  return iconMap[slug];
 }
 
 export default function SkillIconBadge({ slug, name }: SkillIconBadgeProps) {
