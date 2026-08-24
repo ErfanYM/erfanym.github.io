@@ -60,9 +60,6 @@ export default function Nav() {
                 {link.label}
               </a>
             ))}
-            <div className="pt-1">
-              <ThemeToggle />
-            </div>
           </div>
         </div>
       )}
