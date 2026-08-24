@@ -1,7 +1,24 @@
+import Nav from "./components/Nav";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Education from "./components/Education";
+import Experience from "./components/Experience";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
+
 export default function App() {
   return (
-    <main className="min-h-screen bg-bg text-ink font-sans">
-      <h1 className="font-display text-4xl p-8">Erfan YousefMoumji</h1>
-    </main>
+    <div className="min-h-screen bg-bg text-ink font-sans">
+      <Nav />
+      <Hero />
+      <About />
+      <Education />
+      <Experience />
+      <Projects />
+      <Contact />
+      <footer className="max-w-5xl mx-auto px-6 py-10 text-center text-muted text-xs">
+        © {new Date().getFullYear()} Erfan YousefMoumji
+      </footer>
+    </div>
   );
 }
