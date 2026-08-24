@@ -31,7 +31,7 @@ export default function Projects() {
       </div>
       <p className="text-muted text-sm mt-8">
         More on{" "}
-        <a href={profile.github} target="_blank" rel="noreferrer" className="text-accent underline">
+        <a href={profile.github} target="_blank" rel="noreferrer" className="text-accentInk underline">
           GitHub
         </a>
         .

@@ -5,11 +5,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: "var(--bg)",
-        ink: "var(--ink)",
-        accent: "var(--accent)",
-        muted: "var(--muted)",
-        line: "var(--line)",
+        bg: "rgb(var(--bg) / <alpha-value>)",
+        ink: "rgb(var(--ink) / <alpha-value>)",
+        accent: "rgb(var(--accent) / <alpha-value>)",
+        accentInk: "rgb(var(--accent-ink) / <alpha-value>)",
+        muted: "rgb(var(--muted) / <alpha-value>)",
+        line: "rgb(var(--line) / <alpha-value>)",
       },
       fontFamily: {
         display: ["Fraunces", "serif"],

@@ -41,7 +41,6 @@ export default function SkillIconBadge({ slug, name }: SkillIconBadgeProps) {
   return (
     <div className="flex items-center gap-2 px-3 py-2 rounded-full border border-line">
       <svg
-        role="img"
         viewBox="0 0 24 24"
         width="20"
         height="20"

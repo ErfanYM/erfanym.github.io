@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Original source images kept at repo root for reference (see src/assets/ for the optimized versions used by the site)
+/realHeadshot.png
+/emoji.png
