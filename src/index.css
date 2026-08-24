@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #FAF6F1;
+  --ink: #241C16;
+  --accent: #C4622D;
+  --muted: #8a7a6c;
+  --line: #e8ded2;
+}
+
+.dark {
+  --bg: #201812;
+  --ink: #FAF6F1;
+  --accent: #C4622D;
+  --muted: #a89a8c;
+  --line: #3a2f26;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: "Inter", sans-serif;
+}
