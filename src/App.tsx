@@ -5,6 +5,7 @@ import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
@@ -16,9 +17,7 @@ export default function App() {
       <Experience />
       <Projects />
       <Contact />
-      <footer className="max-w-5xl mx-auto px-6 py-10 text-center text-muted text-xs">
-        © {new Date().getFullYear()} Erfan YousefMoumji
-      </footer>
+      <Footer />
     </div>
   );
 }
