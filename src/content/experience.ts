@@ -1,32 +1,77 @@
 export interface ExperienceEntry {
   title: string;
   company: string;
+  employmentType: string;
   location: string;
   dates: string;
-  bullets: string[];
+  techStack: string[];
+  achievements: string[];
 }
 
 export const experience: ExperienceEntry[] = [
   {
-    title: "Robotics Software Engineer",
+    title: "Software Engineer",
     company: "MapleMind Academy",
-    location: "Toronto, ON",
+    employmentType: "Permanent, Full-time",
+    location: "Toronto, Ontario, Canada · On-site",
     dates: "Aug 2025 – Feb 2026",
-    bullets: [
-      "Developed navigation and control algorithms in C++ (Arduino IDE) for 4 autonomous robots, integrating ultrasonic sensors, servo motors, and the MPU-6050 gyroscope; improved turning accuracy by 35% and reduced collision errors by 40%.",
-      "Designed sensor fusion logic to stabilize robot movement, increasing path-following consistency by 30% during maze navigation tasks.",
-      "Debugged and resolved hardware-software integration issues through iterative on-robot testing, cutting troubleshooting time by 25% compared to initial trials.",
+    techStack: ["Robotics", "Arduino", "C++", "Python"],
+    achievements: [
+      "Developed navigation and control algorithms in C++ for 4 autonomous robots integrating ultrasonic sensors, servo motors, and the MPU-6050 gyroscope — improving turning accuracy by 35% and reducing collision errors by 40%.",
+      "Designed sensor fusion logic to stabilize robot movement, increasing path-following consistency by 30% during maze navigation.",
+      "Built robotics competition training pipelines for RoboCup, VEX, and FIRA, mentoring student teams through hardware-software integration and algorithm design.",
+      "Deployed in-class robotics labs in partnership with schools, standardizing hardware setups and training instructors on embedded systems programming.",
     ],
   },
   {
     title: "Data Engineer Intern",
     company: "PopIn",
-    location: "Toronto, ON",
-    dates: "Jan 2025 – May 2025",
-    bullets: [
-      "Built automated Python data pipelines and optimized six MySQL tables, reducing query response times by 40% and data noise by 30%.",
-      "Enhanced event-matching accuracy by 25% through algorithmic refinements and weighted logic improvements.",
-      "Streamlined development workflows with GitHub version control and agile sprints, boosting deployment speed by 35%.",
+    employmentType: "Internship",
+    location: "Toronto, Ontario, Canada · Remote",
+    dates: "Jan 2025 – Apr 2025",
+    techStack: ["Python", "MySQL", "PySpark", "Data Modeling"],
+    achievements: [
+      "Designed and optimized a relational data model across six MySQL tables, reducing query latency by 40% and improving scalability of production user data retrieval systems.",
+      "Built a Python-based data extraction and filtration engine using Pandas and NumPy, cutting irrelevant noise by 30% and improving dataset quality for downstream event tracking analytics.",
+      "Engineered a multi-pass event-matching algorithm with iterative weighted logic refinements, boosting match accuracy by 25% and enabling deeper user engagement insights.",
+      "Managed version control and CI coordination via GitHub across agile sprints, improving deployment speed by 35%.",
+    ],
+  },
+  {
+    title: "Customer Service Representative",
+    company: "TJX Canada – Winners, Marshalls, HomeSense",
+    employmentType: "Contract, Part-time",
+    location: "North York, Ontario, Canada",
+    dates: "Sep 2020 – Jan 2025",
+    techStack: [],
+    achievements: [
+      "Monitored department inventory levels and stock movement on the sales floor, identifying product mix gaps and slow-moving merchandise; trained 5+ associates on merchandising standards, driving a 20% improvement in loyalty program participation.",
+      "Analyzed daily sales floor data and inventory-to-sales ratios to flag variances and underperforming categories, escalating findings with actionable recommendations to management.",
+      "Recognized as Employee of the Month (2021 & 2022) for consistent operational excellence and cross-functional collaboration with TJX management.",
+    ],
+  },
+  {
+    title: "Software Engineer",
+    company: "Applied-AI",
+    employmentType: "Internship",
+    location: "Toronto, Ontario, Canada · Remote",
+    dates: "Jan 2024 – May 2024",
+    techStack: ["JavaScript", "Java", "Bitbucket", "Agile", "JIRA", "API", "HTML", "CSS"],
+    achievements: [
+      "Led the maintenance and improvement of both front-end and back-end systems to deliver strong performance and scalability.",
+      "Developed and deployed responsive web design strategies, significantly enhancing mobile user experience — a 40% increase in mobile traffic and a 25% uplift in conversion rates.",
+      "Collaborated with a distributed team of 5 developers using JIRA for project management, contributing to efficient task coordination and project milestones.",
+    ],
+  },
+  {
+    title: "Junior Software Engineer",
+    company: "Kavosh Robotics Team",
+    employmentType: "Internship",
+    location: "Tehran Province, Iran · On-site",
+    dates: "Jan 2017 – Dec 2018",
+    techStack: ["SolidWorks", "Altium Designer", "C", "C++"],
+    achievements: [
+      "Programmed robotic systems in C and C++ for a junior rescue robotics team, winning world championships in Nagoya, Japan (2017) and Montreal, Canada (2018).",
     ],
   },
 ];
