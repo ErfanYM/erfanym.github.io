@@ -17,10 +17,10 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex flex-col items-center justify-center text-center px-6"
     >
-      <p className="text-accentInk font-medium mb-3">{profile.title}</p>
       <h1 className="font-display font-semibold text-5xl sm:text-6xl md:text-7xl text-ink mb-4">
         {profile.name}
       </h1>
+       <h1 className="text-accentInk font-medium text-3xl mb-3">{profile.title}</h1>
       <p className="text-muted text-lg max-w-xl mb-10">{profile.tagline}</p>
 
       <div className="flex items-center gap-4 mb-10">

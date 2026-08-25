@@ -13,9 +13,9 @@ export const education: Education[] = [
     dates: "Sep 2021 – May 2026",
   },
   {
-    school: "Columbia International College",
+    school: "Columbia International College High School",
     location: "Hamilton, Ontario",
-    degree: "Grade 12, Computer Science",
+    degree: "Grade 12",
     dates: "2019",
   },
 ];
