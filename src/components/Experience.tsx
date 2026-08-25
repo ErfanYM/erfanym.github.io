@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { experience } from "../content/experience";
 
+function hexToRgba(hex: string, alpha: number) {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
 export default function Experience() {
   const [selected, setSelected] = useState(0);
   const entry = experience[selected];
@@ -20,14 +27,20 @@ export default function Experience() {
               <button
                 key={e.title + e.company}
                 onClick={() => setSelected(i)}
-                className={`w-full text-left px-4 py-3 border-l-2 transition-colors ${
+                style={
                   isSelected
-                    ? "bg-accentInk/10 border-accentInk"
-                    : "border-transparent hover:bg-line/40"
+                    ? { backgroundColor: hexToRgba(e.color, 0.12), borderLeftColor: e.color }
+                    : { borderLeftColor: "transparent" }
+                }
+                className={`w-full text-left px-4 py-3 border-l-2 transition-colors ${
+                  isSelected ? "" : "hover:bg-line/40"
                 } ${i > 0 ? "border-t border-t-line" : ""}`}
               >
                 <div className="flex items-start gap-2">
-                  <span className="mt-1.5 w-2 h-2 rounded-full bg-accentInk shrink-0" />
+                  <span
+                    className="mt-1.5 w-2 h-2 rounded-full shrink-0"
+                    style={{ backgroundColor: e.color }}
+                  />
                   <div>
                     <p className="text-sm font-semibold text-ink">{e.company}</p>
                     <p className="text-xs text-muted">{e.dates}</p>
@@ -40,7 +53,12 @@ export default function Experience() {
 
         <div className="flex-1 rounded-xl border border-line p-6">
           <div className="flex items-start gap-4 mb-4">
-            <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-accentInk to-accent flex items-center justify-center shrink-0">
+            <div
+              className="w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-colors"
+              style={{
+                background: `linear-gradient(135deg, ${entry.color}, ${hexToRgba(entry.color, 0.6)})`,
+              }}
+            >
               <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <rect x="2" y="7" width="20" height="14" rx="2" />
                 <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
@@ -48,7 +66,9 @@ export default function Experience() {
             </div>
             <div>
               <h3 className="font-display text-xl text-ink">{entry.title}</h3>
-              <p className="text-accentInk font-medium">{entry.company}</p>
+              <p className="font-medium" style={{ color: entry.color }}>
+                {entry.company}
+              </p>
             </div>
           </div>
 
@@ -67,7 +87,10 @@ export default function Experience() {
               </svg>
               {entry.location}
             </span>
-            <span className="inline-flex items-center text-xs px-3 py-1.5 rounded-full bg-accentInk text-white font-medium">
+            <span
+              className="inline-flex items-center text-xs px-3 py-1.5 rounded-full text-white font-medium"
+              style={{ backgroundColor: entry.color }}
+            >
               {entry.employmentType}
             </span>
           </div>
@@ -81,7 +104,8 @@ export default function Experience() {
                 {entry.techStack.map((tech) => (
                   <span
                     key={tech}
-                    className="text-xs px-3 py-1.5 rounded-full bg-line/60 text-ink"
+                    className="text-xs px-3 py-1.5 rounded-full"
+                    style={{ backgroundColor: hexToRgba(entry.color, 0.14), color: entry.color }}
                   >
                     {tech}
                   </span>
@@ -94,13 +118,16 @@ export default function Experience() {
             <p className="text-xs font-semibold text-muted uppercase tracking-wide mb-2">
               Key Achievements
             </p>
-            <div className="grid sm:grid-cols-2 gap-3">
+            <div className="columns-1 sm:columns-2 gap-3">
               {entry.achievements.map((achievement) => (
                 <div
                   key={achievement}
-                  className="flex items-start gap-2 rounded-lg border border-line px-3 py-2.5"
+                  className="break-inside-avoid mb-3 flex items-start gap-2 rounded-lg border border-line px-3 py-2.5"
                 >
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accentInk shrink-0" />
+                  <span
+                    className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0"
+                    style={{ backgroundColor: entry.color }}
+                  />
                   <p className="text-sm text-muted leading-relaxed">{achievement}</p>
                 </div>
               ))}

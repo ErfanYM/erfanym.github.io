@@ -4,6 +4,7 @@ export interface ExperienceEntry {
   employmentType: string;
   location: string;
   dates: string;
+  color: string;
   techStack: string[];
   achievements: string[];
 }
@@ -13,6 +14,7 @@ export const experience: ExperienceEntry[] = [
     title: "Software Engineer",
     company: "MapleMind Academy",
     employmentType: "Permanent, Full-time",
+    color: "#A9501F",
     location: "Toronto, Ontario, Canada · On-site",
     dates: "Aug 2025 – Feb 2026",
     techStack: ["Robotics", "Arduino", "C++", "Python"],
@@ -27,6 +29,7 @@ export const experience: ExperienceEntry[] = [
     title: "Data Engineer Intern",
     company: "PopIn",
     employmentType: "Internship",
+    color: "#B8860B",
     location: "Toronto, Ontario, Canada · Remote",
     dates: "Jan 2025 – Apr 2025",
     techStack: ["Python", "MySQL", "PySpark", "Data Modeling"],
@@ -39,8 +42,9 @@ export const experience: ExperienceEntry[] = [
   },
   {
     title: "Customer Service Representative",
-    company: "TJX Canada – Winners, Marshalls, HomeSense",
+    company: "TJX Canada ",
     employmentType: "Contract, Part-time",
+    color: "#6B7F5E",
     location: "North York, Ontario, Canada",
     dates: "Sep 2020 – Jan 2025",
     techStack: [],
@@ -54,6 +58,7 @@ export const experience: ExperienceEntry[] = [
     title: "Software Engineer",
     company: "Applied-AI",
     employmentType: "Internship",
+    color: "#9C5B6B",
     location: "Toronto, Ontario, Canada · Remote",
     dates: "Jan 2024 – May 2024",
     techStack: ["JavaScript", "Java", "Bitbucket", "Agile", "JIRA", "API", "HTML", "CSS"],
@@ -67,6 +72,7 @@ export const experience: ExperienceEntry[] = [
     title: "Junior Software Engineer",
     company: "Kavosh Robotics Team",
     employmentType: "Internship",
+    color: "#7A5230",
     location: "Tehran Province, Iran · On-site",
     dates: "Jan 2017 – Dec 2018",
     techStack: ["SolidWorks", "Altium Designer", "C", "C++"],
