@@ -19,7 +19,7 @@ export default function Experience() {
         <p className="text-muted">Timeline of roles, projects, and growth</p>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-6">
+      <div className="flex flex-col md:flex-row md:items-start gap-6">
         <div className="md:w-72 shrink-0 rounded-xl border border-line overflow-hidden">
           {experience.map((e, i) => {
             const isSelected = i === selected;
