@@ -1,4 +1,4 @@
-import { motion, useScroll, useSpring } from "motion/react";
+import { motion, useReducedMotion, useScroll, useSpring } from "motion/react";
 import { useActiveSection } from "../hooks/useActiveSection";
 import ThemeToggle from "./ThemeToggle";
 
@@ -14,8 +14,10 @@ const IDS = SECTIONS.map((s) => s.id);
 
 export default function Rail() {
   const active = useActiveSection(IDS);
+  const reduced = useReducedMotion();
   const { scrollYProgress } = useScroll();
-  const progress = useSpring(scrollYProgress, { stiffness: 200, damping: 40, restDelta: 0.001 });
+  const smoothProgress = useSpring(scrollYProgress, { stiffness: 200, damping: 40, restDelta: 0.001 });
+  const progress = reduced ? scrollYProgress : smoothProgress;
 
   return (
     <>
@@ -31,7 +33,7 @@ export default function Rail() {
               <a
                 key={section.id}
                 href={`#${section.id}`}
-                aria-current={isActive ? "true" : undefined}
+                aria-current={isActive ? "location" : undefined}
                 className={`meta relative py-1 pl-4 transition-colors duration-200 ease-out ${
                   isActive ? "text-ink" : "text-muted hover:text-ink"
                 }`}
@@ -41,7 +43,7 @@ export default function Rail() {
                     layoutId="rail-indicator"
                     aria-hidden="true"
                     className="absolute left-0 top-1/2 h-4 w-0.5 -translate-y-1/2 bg-accent"
-                    transition={{ type: "spring", stiffness: 400, damping: 35 }}
+                    transition={reduced ? { duration: 0 } : { type: "spring", stiffness: 400, damping: 35 }}
                   />
                 )}
                 <span className="text-muted">{String(i + 1).padStart(2, "0")}</span>
@@ -72,7 +74,7 @@ export default function Rail() {
               <a
                 key={section.id}
                 href={`#${section.id}`}
-                aria-current={active === section.id ? "true" : undefined}
+                aria-current={active === section.id ? "location" : undefined}
                 className={`meta whitespace-nowrap transition-colors ${
                   active === section.id ? "text-ink" : "text-muted"
                 }`}
