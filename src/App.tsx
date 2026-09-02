@@ -1,5 +1,5 @@
 import Rail from "./components/Rail";
-import Hero from "./components/Hero";
+import Intro from "./components/Intro";
 import Work from "./components/Work";
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -11,7 +11,7 @@ export default function App() {
       <div className="mx-auto flex w-full max-w-content gap-8 px-6">
         <Rail />
         <main className="min-w-0 flex-1 pt-16 lg:mr-[12%] lg:pt-0">
-          <Hero />
+          <Intro />
           <Work />
           <About />
           <Contact />
