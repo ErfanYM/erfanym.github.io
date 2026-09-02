@@ -26,3 +26,6 @@ dist-ssr
 # Original source images kept at repo root for reference (see src/assets/ for the optimized versions used by the site)
 /realHeadshot.png
 /emoji.png
+
+# Design specs and implementation plans — local working docs, not shipped
+docs/superpowers/
