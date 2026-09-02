@@ -3,29 +3,76 @@
 @tailwind utilities;
 
 :root {
-  --bg: 250 246 241;
-  --ink: 36 28 22;
-  --accent: 196 98 45;
-  --accent-ink: 169 80 31;
-  --muted: 120 106 92;
-  --line: 232 222 210;
+  --bg: 245 244 241;
+  --surface: 255 255 255;
+  --ink: 18 17 15;
+  --muted: 110 107 101;
+  --line: 223 221 215;
+  --accent: 31 59 255;
+  --accent-ink: 27 51 214;
 }
 
 .dark {
-  --bg: 32 24 18;
-  --ink: 250 246 241;
-  --accent: 196 98 45;
-  --accent-ink: 226 130 90;
-  --muted: 168 154 140;
-  --line: 58 47 38;
+  --bg: 13 13 12;
+  --surface: 22 22 20;
+  --ink: 237 235 230;
+  --muted: 138 134 126;
+  --line: 38 37 31;
+  --accent: 91 114 255;
+  --accent-ink: 132 148 255;
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background-color: rgb(var(--bg));
   color: rgb(var(--ink));
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 200ms ease-out, color 200ms ease-out;
+}
+
+::selection {
+  background-color: rgb(var(--accent) / 0.18);
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--accent));
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Data tokens: mono, uppercase, tracked out. */
+.meta {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* A metric numeral lifted out of body prose. */
+.metric {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.95em;
+  color: rgb(var(--accent-ink));
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
