@@ -4,7 +4,6 @@ export interface Profile {
   tagline: string;
   aboutParagraphs: string[];
   email: string;
-  phone: string;
   location: string;
   linkedin: string;
   github: string;
@@ -20,7 +19,6 @@ export const profile: Profile = {
     "When I'm not building, I'm usually poking around whatever dataset is in front of me, curious how far I can push a pipeline before it breaks.",
   ],
   email: "yosefyerfan1@gmail.com",
-  phone: "437-440-6684",
   location: "Toronto, Ontario",
   linkedin: "https://linkedin.com/in/erfan-ym",
   github: "https://github.com/ErfanYM",
