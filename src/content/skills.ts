@@ -1,17 +1,59 @@
-export interface SkillIcon {
-  name: string;
-  slug: string;
-}
+import type { SkillGroup } from "./types";
 
-export const skills: SkillIcon[] = [
-  { name: "Python", slug: "python" },
-  { name: "Java", slug: "openjdk" },
-  { name: "JavaScript", slug: "javascript" },
-  { name: "TypeScript", slug: "typescript" },
-  { name: "React", slug: "react" },
-  { name: "Spring Boot", slug: "springboot" },
-  { name: "PostgreSQL", slug: "postgresql" },
-  { name: "MySQL", slug: "mysql" },
-  { name: "Docker", slug: "docker" },
-  { name: "Apache Spark", slug: "apachespark" },
+export const skillGroups: SkillGroup[] = [
+  {
+    label: "Data & Cloud",
+    items: [
+      { name: "PySpark" },
+      { name: "Databricks" },
+      { name: "Delta Lake" },
+      { name: "Unity Catalog" },
+      { name: "SQL Server / T-SQL" },
+      { name: "PostgreSQL" },
+      { name: "MySQL" },
+      { name: "Star Schema / ETL" },
+      { name: "Pandas" },
+      { name: "NumPy" },
+      { name: "AWS" },
+      { name: "Google Cloud Platform" },
+      { name: "Kafka", familiar: true },
+      { name: "MongoDB", familiar: true },
+    ],
+  },
+  {
+    label: "Languages",
+    items: [
+      { name: "Python" },
+      { name: "SQL" },
+      { name: "Java" },
+      { name: "TypeScript" },
+      { name: "JavaScript" },
+      { name: "C++" },
+    ],
+  },
+  {
+    label: "Frameworks",
+    items: [
+      { name: "Spring Boot" },
+      { name: "React" },
+      { name: "Next.js" },
+      { name: "gRPC" },
+      { name: "Scikit-learn" },
+      { name: "NetworkX" },
+    ],
+  },
+  {
+    label: "Tools",
+    items: [
+      { name: "Docker" },
+      { name: "Git / GitHub" },
+      { name: "Maven" },
+      { name: "JUnit / JaCoCo" },
+      { name: "Kubernetes", familiar: true },
+      { name: "GitHub Actions", familiar: true },
+      { name: "Linux", familiar: true },
+      { name: "Jira / Confluence", familiar: true },
+      { name: "Selenium / qTest", familiar: true },
+    ],
+  },
 ];

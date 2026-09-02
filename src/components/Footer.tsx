@@ -37,7 +37,6 @@ export default function Footer() {
           <p className="text-sm font-semibold text-ink mb-3">Contact Info</p>
           <div className="flex flex-col gap-2 text-sm text-muted">
             <p>{profile.email}</p>
-            <p>{profile.phone}</p>
             <p>{profile.location}</p>
           </div>
         </div>

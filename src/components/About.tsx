@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { profile } from "../content/profile";
-import { skills } from "../content/skills";
-import SkillIconBadge from "./SkillIcon";
 import realHeadshot from "../assets/realHeadshot.webp";
 import emoji from "../assets/emoji.webp";
 
@@ -9,7 +7,6 @@ const firstName = profile.name.split(" ")[0];
 
 const contactRows = [
   { label: "Email", value: profile.email },
-  { label: "Phone", value: profile.phone },
   { label: "Location", value: profile.location },
 ];
 
@@ -61,12 +58,6 @@ export default function About() {
             ))}
           </div>
         </div>
-      </div>
-
-      <div className="flex flex-wrap gap-3">
-        {skills.map((skill) => (
-          <SkillIconBadge key={skill.slug} slug={skill.slug} name={skill.name} />
-        ))}
       </div>
     </section>
   );
