@@ -24,8 +24,8 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={() => setDark((d) => !d)}
-      aria-label="Toggle dark mode"
-      className="text-sm px-3 py-1 rounded-full border border-line text-ink hover:border-accent transition-colors"
+      aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
+      className="meta text-muted transition-colors duration-150 hover:text-ink"
     >
       {dark ? "Light" : "Dark"}
     </button>
