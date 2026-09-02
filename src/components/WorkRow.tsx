@@ -36,7 +36,7 @@ export default function WorkRow({ entry, index }: Props) {
       <button
         type="button"
         aria-expanded={open}
-        aria-controls={panelId}
+        aria-controls={open ? panelId : undefined}
         onClick={() => setOpen((v) => !v)}
         className="group grid w-full grid-cols-[2.5rem_1fr_auto] items-start gap-x-4 py-5 text-left transition-colors duration-150 hover:bg-surface md:grid-cols-[2.5rem_minmax(0,1fr)_minmax(0,14rem)_9rem_2rem] md:items-center"
       >
@@ -80,7 +80,7 @@ export default function WorkRow({ entry, index }: Props) {
             id={panelId}
             initial={reduced ? false : { height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
-            exit={reduced ? { height: 0, opacity: 0 } : { height: 0, opacity: 0 }}
+            exit={{ height: 0, opacity: 0 }}
             transition={
               reduced
                 ? { duration: 0 }
@@ -93,13 +93,13 @@ export default function WorkRow({ entry, index }: Props) {
               <div className="max-w-measure">
                 {entry.summary && (
                   <p className="mb-4 text-[0.95rem] leading-relaxed text-muted">
-                    {entry.summary}
+                    {highlightMetrics(entry.summary)}
                   </p>
                 )}
                 <ul className="space-y-3">
-                  {entry.bullets.map((bullet) => (
+                  {entry.bullets.map((bullet, i) => (
                     <li
-                      key={bullet}
+                      key={`${entry.id}-${i}`}
                       className="relative pl-5 text-[0.95rem] leading-relaxed text-ink before:absolute before:left-0 before:top-[0.7em] before:h-px before:w-3 before:bg-line"
                     >
                       {highlightMetrics(bullet)}
