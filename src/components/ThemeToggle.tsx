@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 /**
  * The rail renders two ThemeToggle instances at once (desktop aside + mobile
@@ -38,23 +38,22 @@ function setDarkState(dark: boolean) {
   listeners.forEach((listener) => listener(dark));
 }
 
-applyDark(darkState);
+function subscribe(callback: () => void) {
+  const listener = () => callback();
+  listeners.add(listener);
+  return () => {
+    listeners.delete(listener);
+  };
+}
 
 export default function ThemeToggle() {
-  const [dark, setDark] = useState(darkState);
-
-  useEffect(() => {
-    listeners.add(setDark);
-    return () => {
-      listeners.delete(setDark);
-    };
-  }, []);
+  const dark = useSyncExternalStore(subscribe, () => darkState, () => false);
 
   return (
     <button
       onClick={() => setDarkState(!darkState)}
       aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
-      className="meta text-muted transition-colors duration-150 hover:text-ink"
+      className="meta -m-2 p-2 text-muted transition-colors duration-150 hover:text-ink"
     >
       {dark ? "Light" : "Dark"}
     </button>
