@@ -1,29 +1,58 @@
 import { useEffect, useState } from "react";
 
+/**
+ * The rail renders two ThemeToggle instances at once (desktop aside + mobile
+ * bar), one always hidden by CSS depending on viewport. Module-level state
+ * with a subscriber list keeps both instances in sync — a per-instance
+ * useState would let the hidden one drift stale and stomp the theme back on
+ * its next click after a viewport change.
+ */
+function getInitialDark(): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    const stored = localStorage.getItem("theme");
+    if (stored) return stored === "dark";
+  } catch {
+    // localStorage unavailable (e.g. Safari private mode) — fall through
+  }
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+}
+
+let darkState = getInitialDark();
+const listeners = new Set<(dark: boolean) => void>();
+
+function applyDark(dark: boolean) {
+  if (typeof document !== "undefined") {
+    document.documentElement.classList.toggle("dark", dark);
+  }
+  try {
+    localStorage.setItem("theme", dark ? "dark" : "light");
+  } catch {
+    // localStorage unavailable — theme just won't persist
+  }
+}
+
+function setDarkState(dark: boolean) {
+  darkState = dark;
+  applyDark(dark);
+  listeners.forEach((listener) => listener(dark));
+}
+
+applyDark(darkState);
+
 export default function ThemeToggle() {
-  const [dark, setDark] = useState(() => {
-    if (typeof window === "undefined") return false;
-    try {
-      const stored = localStorage.getItem("theme");
-      if (stored) return stored === "dark";
-    } catch {
-      // localStorage unavailable (e.g. Safari private mode) — fall through
-    }
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
-  });
+  const [dark, setDark] = useState(darkState);
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", dark);
-    try {
-      localStorage.setItem("theme", dark ? "dark" : "light");
-    } catch {
-      // localStorage unavailable — theme just won't persist
-    }
-  }, [dark]);
+    listeners.add(setDark);
+    return () => {
+      listeners.delete(setDark);
+    };
+  }, []);
 
   return (
     <button
-      onClick={() => setDark((d) => !d)}
+      onClick={() => setDarkState(!darkState)}
       aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
       className="meta text-muted transition-colors duration-150 hover:text-ink"
     >
