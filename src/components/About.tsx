@@ -23,7 +23,8 @@ export default function About() {
           ))}
         </div>
 
-        <dl className="space-y-8">
+        <div>
+          <dl className="space-y-8">
           {skillGroups.map((group) => (
             <div key={group.label}>
               <dt className="meta mb-3 text-accentInk">{group.label}</dt>
@@ -32,9 +33,12 @@ export default function About() {
                   <span key={item.name} className="whitespace-nowrap">
                     {item.name}
                     {item.familiar && (
-                      <span aria-hidden="true" className="pl-0.5 text-muted">
-                        ·
-                      </span>
+                      <>
+                        <span aria-hidden="true" className="pl-0.5 text-muted">
+                          ·
+                        </span>
+                        <span className="sr-only"> (working knowledge)</span>
+                      </>
                     )}
                   </span>
                 ))}
@@ -53,15 +57,17 @@ export default function About() {
             ))}
           </div>
 
+          </dl>
+
+          {/* Outside the <dl>: HTML's dl content model allows <div> only as a
+              dt/dd grouping, so the legend cannot live inside it. */}
           {hasFamiliar && (
-            <div>
-              <p className="border-t border-line pt-4 text-xs leading-relaxed text-muted">
-                <span aria-hidden="true">·</span> marks working knowledge rather than
-                hands-on project experience.
-              </p>
-            </div>
+            <p className="mt-8 border-t border-line pt-4 text-xs leading-relaxed text-muted">
+              A dot marks working knowledge rather than hands-on project
+              experience.
+            </p>
           )}
-        </dl>
+        </div>
       </div>
     </section>
   );

@@ -20,6 +20,25 @@ const DATA_TAGS = new Set([
   "AWS",
 ]);
 
+/** The sheet printing: the hairline draws left-to-right… */
+const LINE_VARIANTS = {
+  hidden: { scaleX: 0 },
+  shown: {
+    scaleX: 1,
+    transition: { duration: 0.5, ease: [0, 0, 0.2, 1] as const },
+  },
+};
+
+/** …and the row's text rises in just behind its own line. */
+const CONTENT_VARIANTS = {
+  hidden: { opacity: 0, y: 12 },
+  shown: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, delay: 0.08, ease: [0, 0, 0.2, 1] as const },
+  },
+};
+
 interface Props {
   entry: WorkEntry;
   /** 1-based display index within its group. */
@@ -32,7 +51,15 @@ export default function WorkRow({ entry, index }: Props) {
   const panelId = useId();
 
   return (
-    <div className="border-t border-line">
+    <div className="relative">
+      {/* Under reduced motion no variant is applied at all, so the line renders
+          at its CSS default — fully drawn, never stranded at scaleX(0). */}
+      <motion.span
+        aria-hidden="true"
+        variants={reduced ? undefined : LINE_VARIANTS}
+        className="pointer-events-none absolute inset-x-0 top-0 h-px origin-left bg-line"
+      />
+      <motion.div variants={reduced ? undefined : CONTENT_VARIANTS}>
       <button
         type="button"
         aria-expanded={open}
@@ -73,6 +100,7 @@ export default function WorkRow({ entry, index }: Props) {
           +
         </span>
       </button>
+      </motion.div>
 
       <AnimatePresence initial={false}>
         {open && (

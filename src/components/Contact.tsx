@@ -24,14 +24,14 @@ export default function Contact() {
         </span>
       </a>
 
-      <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
+      <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2">
         {links.map(({ href, label, Icon }) => (
           <a
             key={label}
             href={href}
             target={href.startsWith("http") ? "_blank" : undefined}
             rel={href.startsWith("http") ? "noreferrer" : undefined}
-            className="meta -m-2 flex items-center gap-2 p-2 text-muted transition-colors duration-150 hover:text-ink"
+            className="meta flex items-center gap-2 p-2 text-muted transition-colors duration-150 hover:text-ink"
           >
             <Icon />
             {label}

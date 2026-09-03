@@ -17,14 +17,19 @@ export default function App() {
           <Contact />
         </main>
       </div>
-      <footer className="mx-auto flex w-full max-w-content flex-col justify-between gap-2 border-t border-line px-6 pt-6 pb-6 sm:flex-row lg:mr-[12%]">
-        <p className="meta text-muted">
-          {profile.name} <span className="px-2 text-line">·</span> {profile.location}
-        </p>
-        <p className="meta text-muted">
-          Built with React, Vite &amp; Tailwind
-        </p>
-      </footer>
+      {/* Mirrors the layout row above so the footer's left edge and hairline
+          share the rail offset and 12% right inset with <main>. */}
+      <div className="mx-auto flex w-full max-w-content gap-8 px-6">
+        <div aria-hidden="true" className="hidden w-rail shrink-0 lg:block" />
+        <footer className="flex min-w-0 flex-1 flex-col justify-between gap-2 border-t border-line pb-6 pt-6 sm:flex-row lg:mr-[12%]">
+          <p className="meta text-muted">
+            {profile.name} <span className="px-2 text-muted/60">·</span> {profile.location}
+          </p>
+          <p className="meta text-muted">
+            Built with React, Vite &amp; Tailwind
+          </p>
+        </footer>
+      </div>
     </div>
   );
 }
