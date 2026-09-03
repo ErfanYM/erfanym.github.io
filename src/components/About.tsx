@@ -54,12 +54,12 @@ export default function About() {
           </div>
 
           {hasFamiliar && (
-            <fieldset>
+            <div>
               <p className="border-t border-line pt-4 text-xs leading-relaxed text-muted">
                 <span aria-hidden="true">·</span> marks working knowledge rather than
                 hands-on project experience.
               </p>
-            </fieldset>
+            </div>
           )}
         </dl>
       </div>
