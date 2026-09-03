@@ -27,17 +27,9 @@ export default function Work() {
               className="border-b border-line"
             >
               {group.entries.map((entry, i) => (
-                <motion.div
-                  key={entry.id}
-                  variants={{
-                    hidden: { opacity: 0, y: 12 },
-                    shown: {
-                      opacity: 1,
-                      y: 0,
-                      transition: { duration: 0.4, ease: [0, 0, 0.2, 1] },
-                    },
-                  }}
-                >
+                // Orchestrator only: the 60ms stagger lands here, and the row's
+                // own line + content variants inherit its start time.
+                <motion.div key={entry.id} variants={{ hidden: {}, shown: {} }}>
                   <WorkRow entry={entry} index={i + 1} />
                 </motion.div>
               ))}

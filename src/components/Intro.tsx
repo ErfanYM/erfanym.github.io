@@ -5,7 +5,7 @@ export default function Intro() {
   return (
     <section
       id="intro"
-      className="flex min-h-[88vh] scroll-mt-24 flex-col justify-center py-24"
+      className="flex min-h-[88dvh] scroll-mt-24 flex-col justify-center py-24"
     >
       <p className="meta mb-6 text-accentInk">Open to data engineering roles</p>
 
@@ -18,8 +18,8 @@ export default function Intro() {
           <p className="text-xl text-ink md:text-2xl">{profile.title}</p>
           <p className="mt-3 leading-relaxed text-muted">{profile.tagline}</p>
           <p className="meta mt-8 text-muted">
-            Toronto, ON <span className="px-2 text-line">·</span> B.Sc CS, York
-            <span className="px-2 text-line">·</span> Available now
+            {profile.location} <span className="px-2 text-muted/60">·</span> B.Sc CS,
+            York
           </p>
           <a
             href="#work"

@@ -75,7 +75,7 @@ export default function Rail() {
                 key={section.id}
                 href={`#${section.id}`}
                 aria-current={active === section.id ? "location" : undefined}
-                className={`meta whitespace-nowrap transition-colors ${
+                className={`meta -my-1 whitespace-nowrap py-1.5 transition-colors ${
                   active === section.id ? "text-ink" : "text-muted"
                 }`}
               >

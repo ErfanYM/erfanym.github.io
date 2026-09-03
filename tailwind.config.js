@@ -2,6 +2,9 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
+  // iOS Safari sticks :hover on tap; without this guard a tapped headshot or
+  // Work row stays in its hover state.
+  future: { hoverOnlyWhenSupported: true },
   theme: {
     extend: {
       colors: {
@@ -22,7 +25,6 @@ export default {
         display: ["clamp(3.5rem, 9vw, 7rem)", { lineHeight: "0.95", letterSpacing: "-0.03em" }],
         section: ["clamp(2.5rem, 5vw, 3.5rem)", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
         row: ["1.25rem", { lineHeight: "1.3", letterSpacing: "-0.01em" }],
-        meta: ["0.75rem", { lineHeight: "1.4", letterSpacing: "0.06em" }],
       },
       maxWidth: {
         content: "1240px",
@@ -30,9 +32,6 @@ export default {
       },
       spacing: {
         rail: "180px",
-      },
-      borderRadius: {
-        DEFAULT: "4px",
       },
       transitionDuration: {
         // Not a Tailwind default; the underline draw is specified at 250ms.

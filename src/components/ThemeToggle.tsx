@@ -51,6 +51,7 @@ export default function ThemeToggle() {
 
   return (
     <button
+      type="button"
       onClick={() => setDarkState(!darkState)}
       aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
       className="meta -m-2 p-2 text-muted transition-colors duration-150 hover:text-ink"
