@@ -31,21 +31,12 @@ export default function Contact() {
             href={href}
             target={href.startsWith("http") ? "_blank" : undefined}
             rel={href.startsWith("http") ? "noreferrer" : undefined}
-            className="meta flex items-center gap-2 text-muted transition-colors duration-150 hover:text-ink"
+            className="meta -m-2 flex items-center gap-2 p-2 text-muted transition-colors duration-150 hover:text-ink"
           >
             <Icon />
             {label}
           </a>
         ))}
-      </div>
-
-      <div className="mt-20 flex flex-col justify-between gap-2 border-t border-line pt-6 sm:flex-row">
-        <p className="meta text-muted">
-          {profile.name} <span className="px-2 text-line">·</span> {profile.location}
-        </p>
-        <p className="meta text-muted">
-          Built with React, Vite &amp; Tailwind
-        </p>
       </div>
     </section>
   );

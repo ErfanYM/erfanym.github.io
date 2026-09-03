@@ -47,6 +47,16 @@ body {
   border-radius: 2px;
 }
 
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
 /* Data tokens: mono, uppercase, tracked out. */
 .meta {
   font-family: "JetBrains Mono", ui-monospace, monospace;
