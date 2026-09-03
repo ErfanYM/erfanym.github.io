@@ -16,8 +16,8 @@ export default function About() {
           <p className="leading-relaxed text-ink [&::first-letter]:float-left [&::first-letter]:mr-2 [&::first-letter]:font-display [&::first-letter]:text-5xl [&::first-letter]:leading-[0.85]">
             {lead}
           </p>
-          {rest.map((paragraph) => (
-            <p key={paragraph} className="mt-5 leading-relaxed text-muted">
+          {rest.map((paragraph, i) => (
+            <p key={`about-p-${i}`} className="mt-5 leading-relaxed text-muted">
               {paragraph}
             </p>
           ))}
@@ -54,10 +54,12 @@ export default function About() {
           </div>
 
           {hasFamiliar && (
-            <p className="border-t border-line pt-4 text-xs leading-relaxed text-muted">
-              <span aria-hidden="true">·</span> marks working knowledge rather than
-              hands-on project experience.
-            </p>
+            <fieldset>
+              <p className="border-t border-line pt-4 text-xs leading-relaxed text-muted">
+                <span aria-hidden="true">·</span> marks working knowledge rather than
+                hands-on project experience.
+              </p>
+            </fieldset>
           )}
         </dl>
       </div>
