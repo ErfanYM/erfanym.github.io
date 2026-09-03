@@ -29,3 +29,7 @@ dist-ssr
 
 # Design specs and implementation plans — local working docs, not shipped
 docs/superpowers/
+
+# Personal working notes — full resume detail and design references, not shipped
+/bird_view.md
+/portfolio_inspiration/
