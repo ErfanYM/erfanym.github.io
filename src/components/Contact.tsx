@@ -30,7 +30,7 @@ export default function Contact() {
             key={label}
             href={href}
             target={href.startsWith("http") ? "_blank" : undefined}
-            rel={href.startsWith("http") ? "noreferrer" : undefined}
+            rel={href.startsWith("http") ? "noreferrer noopener" : undefined}
             className="meta flex items-center gap-2 p-2 text-muted transition-colors duration-150 hover:text-ink"
           >
             <Icon />
